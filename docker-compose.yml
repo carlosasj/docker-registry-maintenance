@@ -1,0 +1,12 @@
+version: '3'
+services:
+  cleanup:
+    build: .
+    restart: always
+    environment:
+      SCHEDULE: '@daily'
+      CONFIG_FILE: '/config-cleanup.yml'
+      REGISTRY_USER: 'overwrite_this'  # You can set this also on `config-cleanup.yml` fil
+      REGISTRY_PASSWORD: 'overwrite_this'  # You can set this also on `config-cleanup.yml` fil
+    volumes:
+      - './config-cleanup.yml:/config-cleanup.yml'

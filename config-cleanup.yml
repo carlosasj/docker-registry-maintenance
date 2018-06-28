@@ -1,0 +1,30 @@
+# Example
+delete_images:
+  - image: bt-synch-up
+    num: 4
+    tags-like:
+      - '\d+\.\d+\..*?-SNAPSHOT'
+    # keep-tags:
+    keep-tags-like:
+      - '^\d+\.\d+$'
+      - '^\d+\.\d+-SNAPSHOT$'
+    # delete-by-hours: 24
+    keep-by-hours: 24
+
+default_other_images:
+  num: 4
+  tags-like:
+    - '\d+\.\d+\..*?-SNAPSHOT'
+  # keep-tags:
+  keep-tags-like:
+    - '\d+\.\d+'
+  # delete-by-hours: 24
+  keep-by-hours: 24
+
+global:
+  dry-run: true
+  no-validate-ssl: true
+  digest-method: GET
+  login: !env $REGISTRY_USER:$REGISTRY_PASSWORD
+  host: https://docker.registry.tokenlab.com.br
+  debug: false
