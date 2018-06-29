@@ -1,5 +1,7 @@
 #! /bin/sh
 
+set -e
+
 if [ "${SCHEDULE}" = "**None**" ]; then
   sh cleanup.sh
 else
